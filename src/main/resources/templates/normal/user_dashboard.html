@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+	<section>
+
+		<div class="container">
+			<div class="card">
+				<div class="card-body">
+					<div class="container text-center">
+						<img style="height: 300px; width: 400px;" alt="profile photo"
+							src="" th:src="@{'/img/contact1.png'}">
+					</div>
+					<h1
+						class="text-center mt-3 text-secondary font-italic font-weight-light">
+						START ADDING YOUR CONTACT ON CLOUD</h1>
+					<div class="container text-center">
+						<a th:href="@{/user/add-contact}" class="btn btn-outline-primary">ADD
+							NEW CONTACT</a>
+                    <hr/>
+                    
+                    
+               <!--    payment -->
+                    <h3 class="my-2">Donate Us</h3>
+                    <input id="payment_field" type="text" class="form-control my-2" placeholder="Enter your amount here..."/>
+					<div class="container text-center ">
+					<button onclick="paymentStart()" class="btn btn-success mt-2">PAY</button>
+					</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+</body>
+</html>

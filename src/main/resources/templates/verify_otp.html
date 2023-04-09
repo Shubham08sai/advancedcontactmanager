@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is Custom Login page</title>
+</head>
+<body>
+	<section>
+		<div class="wrapper fadeInDown">
+			<div id="formContent">
+<!-- 			email form -->
+          <div class="alert alert-success mt-2 ml-2 mr-2" role="alert">
+  we have send OTP on your Email Address...
+</div>
+	<div th:if="${session.message}" class="container">
+			<div 
+				class="alert alert-danger my-2 text-center" role="alert">
+				<span th:text="${session.message}"></span>
+			</div>
+			<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+           <form action="" th:action="@{/verify-otp}" method="post">
+           <div class="form-group ml-2 mr-2">
+          <input name="otp" required="required" type="text" placeholder="Enter your OTP here... " class="form-control"/>
+          </div>
+          <div class="container text-center mb-3">
+          <button class="btn btn-success">Verify Email</button>
+          </div>
+           </form>	
+			</div>
+		</div>
+	</section>
+</body>
+</html>

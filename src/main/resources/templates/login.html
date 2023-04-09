@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>this is Custom Login page</title>
+</head>
+<body>
+	<section>
+		<div class="wrapper fadeInDown">
+			<div id="formContent">
+				<!-- Tabs Titles -->
+
+				<!--     Icon -->
+				<div class="container text-center">
+					<img style="width: 60px" alt="" src="" th:src="@{/img/sign-up.png}">
+				</div>
+				<div th:if="${param.error}" class="alert alert-danger">
+					Invalid Username And Password</div>
+				<div th:if="${param.logout}" class="alert alert-success">you
+					have been logged out</div>
+				
+				<div th:if="${param.change}" class="alert alert-success">
+				<p th:text="${param.change}"></p> 
+				</div>
+					
+					
+				<!-- Login Form -->
+				<form id="form-id" class="form" th:action="@{/dologin}" action="#"
+					method="post">
+
+					<input type="text" id="login" class="fadeIn second" name="username"
+						placeholder="login"> <input type="text" id="password"
+						class="fadeIn third" name="password" placeholder="password">
+                        <input type="submit" class="fadeIn fourth" value="Sign In">
+				</form>
+
+				<!-- Remind Password -->
+				<div id="formFooter">
+					<a class="underlineHover" href="#" th:href="@{/forgot}">Forgot Password?</a>
+				</div>
+				<div id="formFooter">
+					<a class="underlineHover" href="/signup/">Register Here</a>
+				</div>
+
+			</div>
+		</div>
+	</section>
+</body>
+</html>
